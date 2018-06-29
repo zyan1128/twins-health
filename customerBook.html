@@ -1,0 +1,440 @@
+﻿<!-- <%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="x-ua-compatible" content="IE=9" />
+<title>双双健康管理系统</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!-- <link type="text/css" rel="stylesheet" href="css/zTreeStyle.css" />
+     <link type="text/css" rel="stylesheet" href="css/zTreeStyleTrace.css" />
+     <link type="text/css" rel="stylesheet" href="css/gaishifu.css" />
+ -->
+
+<script type="text/javascript" src='./extra/jquery-1.9.1.js'></script>
+<script type="text/javascript" src="./extra/LAB.js"></script>
+<script type="text/javascript" src="./scripts/plugin/loading.js"></script>
+<script type="text/javascript">
+    $ .jRadLoading({app:'/twins-health-ws',type:'css',source:true});
+</script>
+
+<style>
+    .pop-up-box .ui-buttons-container {
+        text-align: center;
+    }
+    .grid-row-fluid .modal.span14 {
+        left: 0%;
+        right: 0%;
+        margin: 0 auto;
+    }
+    .btn-info, .ui-widget-content .btn-info {
+        background-color: #ffce09 !important;
+        border-color: #ffce09;
+    }
+    .btn-info:hover,.ui-widget-content .btn-info:hover{
+        background-color:#ffce09 !important;
+    }
+    .btn {
+        color: #3b3b3b !important;
+    }
+    .btn > [class*="icon-"] + .summary {
+        text-shadow: none;
+    }
+    .navbar .navbar-inner{
+        background:#3e3e3e;
+        padding: 10px;
+    }
+    .ace-nav > li.light-blue {
+        background: #3e3e3e;
+    }
+    .nav-list > li.active > a:after {
+        border-color:transparent #ffce09 transparent transparent;
+    }
+    .nav-list > li.active:after {
+        border-right-color:#ffce09;
+    }
+    .nav-list > li.open {
+        border-bottom-color: #e5e5e5;
+    }
+    .nav-list > li.active.open > .submenu > li.active > a:after {
+        border-color:transparent #ffce09 transparent transparent;
+    }
+    .nav-list > li .submenu > li.active > a {
+        color: #ffce09;
+    }
+    .nav-list > li .submenu > li a > [class*="icon-"]:first-child {
+        background: none;
+    }
+    .nav-list > li .submenu > li.active > a > [class*="icon-"]:first-child {
+        color: #ffce09;
+    }
+    .dataTables_wrapper .dataTables-header,
+    .bbit-grid .mDiv{
+        background-color: #b9b9b9;
+    }
+    li.active {
+        background: #3e3e3e;
+    }
+    .ui-pagination-pageinfo > span.current, .ui-pagination-pageinfo > span.current:hover {
+        color: #3b3b3b;
+        background-color: #ffce09;
+        border-color: #ffce09;
+    }
+    .nav-list > li a:hover > .arrow, .nav-list > li.active > a > .arrow, .nav-list > li.open > a > .arrow {
+        color: #3e3e3e;
+    }
+    .nav-list > li.active > a, .nav-list > li.active > a:hover, .nav-list > li.active > a:focus, .nav-list > li.active > a:active {
+        color: #3e3e3e;
+    }
+    .nav-list > li.open > a {
+        color: #3e3e3e;
+    }
+</style>
+</head>
+<body>
+
+<div class="navbar navbar-inverse">
+	<div class="navbar-inner">
+		<div class="container">
+			<ul class="nav ace-nav pull-right">
+			</ul>
+		</div>
+	</div>
+</div>
+<div class="container-fluid" id="main-container">
+	<div id="main-content" class="clearfix">
+		<!-- 主体页面 -->
+		<div id="page-content" class="clearfix">
+	</div>
+</div>
+
+<a href="javascript:void(0);" id="btn-scroll-up" class="btn btn-small btn-inverse">
+<i class="icon-double-angle-up icon-only bigger-110"></i>
+</a>
+<script type="text/javascript">
+	$ .jRadLoading({app:'/twins-health-ws',type:'js',source:true});
+</script>
+<!-- <script type="text/javascript" src="js/login.js"></script> -->
+<script type="text/javascript" src="./scripts/plugin/index.js"></script>
+<script type="text/javascript">
+/*
+$(document).ready(function(){
+	// 导航条
+	$.ajaxSetup({
+		global:false
+	})
+	$.jRadGet({
+		url: '/twins-health-ws/ws/0.1/user/getLoginUserInfo',
+		async: true,
+		success: function(data){
+			$('#user_info').html($('#user_info').html()+data.name);
+		},
+		error: function() {
+			$('#crop_logo').text('admin');
+		}
+	});
+	$('#breadcrumbs>ul').breadcrumbs({
+		index: 'dashboard.html',
+		data:[]
+	});
+	
+	$('#user_menu .icon-off').parent().click(function(){index.logOut();});
+	$('#sidebar').menu({
+		urlData: {url:'/area52-manager-ws/ws/0.1/menu/getMenuJSON'},
+		sidebars: []
+	}).menu('open','dashboard.html');
+});
+*/
+(function($, undefined) {
+	 $.jRad__ajax = function(type, options) {
+	        var async = options.async || false;
+	        var cache = options.cache || false;
+	        var _success = options.success;
+	        var _error = options.error;
+	        var data = {};
+	        try {
+	            if (options.data) {
+	                data = $.toJSON(options.data)
+	            }
+	        } catch(e) {
+	            try {
+	                if (console) {
+	                    console.log('参数data不是json类型');
+	                }
+	            } catch(e1) {}
+	        }
+	        var _result = null;
+	        $.ajax({
+	            url: options.url,
+	            type: type,
+	            dataType: 'JSON',
+	            data: data,
+	            async: async,
+	            cache: cache,
+	            beforeSend:options.beforeSend?options.beforeSend:function(xhr){},
+	            contentType: options.contentType || null,
+	            success: function(json) {
+	                _result = json;
+	                try {
+	                    if (jQuery.isFunction(_success)) {
+	                        _success(json);
+	                    }
+	                } catch(e) {
+	                    try {
+	                        if (console) {
+	                            console.log('回调方法执行错误');
+	                        }
+	                    } catch(e1) {}
+	                }
+	            },
+	            error: function(xhr) {
+					var status = xhr.status;
+					var responseText = xhr.responseText;
+					if (status == 200) {
+						if (jQuery.isFunction(_success)) {
+							_success(responseText);
+						}
+					} else if (status == 400) {
+					} else if (status == 401) {
+						if (index && $.isFunction(index.logOut)) {
+							index.logOut();
+						}
+					} else if (status == 500 && (!jQuery.isFunction(_error))) {
+						var result = eval('('+responseText+')');
+	                    if(result && result[0]) {
+	    					$.jRadMessage({message: result[0].message,level: 'error'});
+	                    }
+					}
+					if (jQuery.isFunction(_error)) {
+						_error(xhr);
+					} else {
+						try {
+							if (console) {
+								console.log('获取[' + options.url + '][' + type + ']失败');
+							}
+						} catch (e1) {
+						}
+					}
+				}
+	        });
+	        return _result;
+	    };
+    $.widget("jrad.select", $.jrad.select, {
+       removeItems: function(defaultValue){
+       		this.options.data = [defaultValue];
+       	 	this._initElement();
+            this._initEvent();
+       }
+    });
+} (jQuery));
+(function($, undefined) {
+    $("#page-content").load("customer_list.html");
+    $.widget("jrad.form", $.jrad.form, {
+        _reloadvalidator: function() {
+            var form = this.element.form;
+            var options = this.options;
+            var _validators = this.options.validators || {};
+            //输入框
+            $.each(form.find("div.jrad-input-container"),
+            function(index) {
+                var name = $(this).data('name') || $(this).attr('name');
+                if (name) {
+                    var validator = _validators[name];
+                    if (validator != undefined && validator != null) {
+                        $(this).input({
+                            validator: validator
+                        });
+                        $(this).focusout(function() {
+                            $(this).input('validate');
+                        });
+                    }
+                }
+            });
+            // 日期
+            $.each(form.find("div.jrad-dateinput-container"),
+            function(index) {
+                var name = $(this).data('name') || $(this).attr('name');
+                if (name) {
+                    var validator = _validators[name];
+                    if (validator != undefined && validator != null) {
+                        $(this).dateinput({
+                            validator: validator
+                        });
+                    }
+                }
+            });
+            // 日期段
+            $.each(form.find("div.jrad-daterange-container"),
+            function(index) {
+                var name = $(this).data('name') || $(this).attr('name');
+                if (name) {
+                    var validator = _validators[name];
+                    if (validator != undefined && validator != null) {
+                        $(this).daterange({
+                            validator: validator
+                        });
+                    }
+                }
+            });
+            // 日期时间
+            $.each(form.find("div.jrad-datetimeinput-container"),
+            function(index) {
+                var name = $(this).data('name') || $(this).attr('name');
+                if (name) {
+                    var validator = _validators[name];
+                    if (validator != undefined && validator != null) {
+                        $(this).datetimeinput({
+                            validator: validator
+                        });
+                    }
+                }
+            });
+            // 日期时间段
+            $.each(form.find("div.jrad-datetimerange-container"),
+            function(index) {
+                var name = $(this).data('name') || $(this).attr('name');
+                if (name) {
+                    var validator = _validators[name];
+                    if (validator != undefined && validator != null) {
+                        $(this).datetimerange({
+                            validator: validator
+                        });
+                    }
+                }
+            });
+            //textarea
+            $.each(form.find("div.jrad-textarea-container"),
+            function(index) {
+                var name = $(this).data('name') || $(this).attr('name');
+                if (name) {
+                    var validator = _validators[name];
+                    if (validator != undefined && validator != null) {
+                        $(this).textarea({
+                            validator: validator
+                        });
+                        $(this).focusout(function() {
+                            $(this).textarea('validate');
+                        });
+                    }
+                }
+            });
+            //checkbox
+            $.each(form.find("div.jrad-checkbox-container"),
+            function(index) {
+                var name = $(this).data('name') || $(this).attr('name');
+                if (name) {
+                    var validator = _validators[name];
+                    if (validator != undefined && validator != null) {
+                        $(this).checkbox({
+                            validator: validator
+                        });
+                    }
+                }
+            });
+            //radio
+            $.each(form.find("div.jrad-radio-container"),
+            function(index) {
+                var name = $(this).data('name') || $(this).attr('name');
+                if (name) {
+                    var validator = _validators[name];
+                    if (validator != undefined && validator != null) {
+                        $(this).radio({
+                            validator: validator
+                        });
+                    }
+                }
+            });
+            //下拉选择框
+            $.each(form.find("div.jrad-select-container"),
+            function(index) {
+                var name = $(this).data('name') || $(this).attr('name');
+                if (name) {
+                    var validator = _validators[name];
+                    if (validator != undefined && validator != null) {
+                        $(this).select({
+                            validator: validator
+                        });
+                    }
+                }
+            });
+            //可输入下拉框
+            $.each(form.find("div.jrad-autocomplete-container"),
+            function(index) {
+                var name = $(this).data('name') || $(this).attr('name');
+                if (name) {
+                    var validator = _validators[name];
+                    if (validator != undefined && validator != null) {
+                        $(this).autocomplete({
+                            validator: validator
+                        });
+                    }
+                }
+            });
+            //提示输入框
+            $.each(form.find("div.jrad-autocombo-container"),
+            function(index) {
+                var name = $(this).data('name') || $(this).attr('name');
+                if (name) {
+                    var validator = _validators[name];
+                    if (validator != undefined && validator != null) {
+                        $(this).autocombo({
+                            validator: validator
+                        });
+                        $(this).focusout(function() {
+                            $(this).autocombo('validate');
+                        });
+                    }
+                }
+            });
+            // 上传文件
+            $.each(form.find("div.jrad-upload-container"),
+            function(index) {
+                var name = $(this).data('name') || $(this).attr('name');
+                if (name) {
+                    var validator = _validators[name];
+                    if (validator != undefined && validator != null) {
+                        $(this).upload({
+                            validator: validator
+                        });
+                        $(this).focusout(function() {
+                            $(this).upload('validate');
+                        });
+                    }
+                }
+            });
+            $.each(form.find("div.jrad-mediaarea-container"),
+            function(index) {
+                var name = $(this).data('name') || $(this).attr('name');
+                if (name) {
+                    var validator = _validators[name];
+                    if (validator != undefined && validator != null) {
+                        $(this).mediaarea({
+                            validator: validator
+                        });
+                        $(this).focusout(function() {
+                            $(this).mediaarea('validate');
+                        });
+                    }
+                }
+            });
+        }
+    });
+} (jQuery));
+function endWith(str,endStr){
+	var d=str.length-endStr.length;
+	return (d>=0&&str.lastIndexOf(endStr)==d)
+}
+function beginWith(str,beginStr){
+	var fdStart = str.indexOf(beginStr);
+	if(fdStart == 0){
+		return true;
+	}else{
+	   return false;
+	}
+}
+</script>
+
+</body>
+</html>

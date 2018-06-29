@@ -1,0 +1,825 @@
+html,body,div,span,h1,h2,h3,h4,h5,h6,p,blockquote,a,abbr,cite,dfn,em,img,ins,s,strong,b,u,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,section,summary,time,mark,audio,video{
+    margin:0;padding:0;border:0;outline:none; font-weight:normal;
+}
+html{-webkit-text-size-adjust:none;-ms-text-size-adjust:none;}
+body{
+    /*font-family: 'Helvetica Neue', 'Helvetica',"微软雅黑","Microsoft Yahei", Verdana, Geneva, sans-serif;*/
+    font-family: "HanHei SC","PingHei","PingFang SC","STHeitiSC-Light","Helvetica Neue","Helvetica","Arial","微软雅黑","Microsoft Yahei",sans-serif;
+    font-size: 14px;line-height: 1.5;min-width: 1200px;}
+ul,ol,li{list-style-type:none;}
+input,button,textarea,select {outline:none;border-style:none;}
+img{vertical-align:middle;border:none;}
+a{text-decoration:none;}
+.form-actions input{-webkit-appearance: none;}
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+button {-webkit-appearance: none;}
+
+.clearfix:after {content: ".";display: block;height:0;clear: both; visibility: hidden;}
+.clearfix{zoom:1;}
+a{text-decoration:none;blr:expression(this.onFocus=this.blur());cursor:pointer;}
+a:hover{text-decoration:none;}
+a:focus{outline:none;}
+li:focus{outline:none;}
+
+.container{
+    width: 1200px;
+    margin: 0 auto;
+}
+.nav{
+    background-color: rgba(255,255,255,0.8);
+    filter: progid:DXImageTransform.Microsoft.Gradient(startColorstr=#CCFFFFFF,endColorstr=#CCFFFFFF);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+.nav>.container>.logo{
+    margin-left: 20px;
+    padding: 15px;
+    float: left;
+}
+.nav>.container>.nav-list{
+    float: left;
+    padding: 30px 0 30px 25px;
+}
+.nav>.container>.nav-list>li{
+    font-size: 16px;
+    line-height: 30px;
+    padding: 0 20px;
+    float: left;
+}
+.nav>.container>.nav-list>li a{
+    color: #656d78;
+}
+.nav>.container>.nav-list>.active>a{
+    color: #ed7ba0;
+}
+.banner .banner-img .banner-list{
+    display: none;
+}
+.banner .banner-img .banner-list>img{
+    width: 100%;
+}
+.banner .banner-img .active{
+    display: block;
+}
+.banner .container-fluid{
+    position: relative;
+}
+.banner .container-fluid>.to-left{
+    position: absolute;
+    left: 140px;
+    top: 50%;
+    margin-top: -18px;
+    cursor: pointer;
+}
+.banner .container-fluid>.to-right{
+    position: absolute;
+    right: 140px;
+    top: 50%;
+    margin-top: -18px;
+    cursor: pointer;
+}
+.banner .container-fluid>.circle{
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    margin-left: -44px;
+}
+.banner .container-fluid>.circle>li{
+    width: 10px;
+    height: 10px;
+    border-radius:50%;
+    margin: 0 6px;
+    float: left;
+    background: url("../images/circlewhite.png") no-repeat;
+    cursor: pointer;
+}
+.banner .container-fluid>.circle>li.active{
+    background: url("../images/circleother.png") no-repeat;
+}
+.index-project{
+    text-align: center;
+    padding:90px 0;
+    border-bottom: 1px solid #ccd1d9;
+}
+
+.index-project h2,
+.index-service h2{
+    font-size: 38px;
+    color: #434a54;
+}
+.index-project h3,
+.index-service h3{
+    font-size: 20px;
+    color: #ccd1d9;
+}
+.index-project .line,
+.index-service .line{
+    display: inline-block;
+    width: 40px;
+    height: 4px;
+    background-color: #e0e3e8;
+    margin:15px 0;
+}
+.index-project .item-list h4{
+    font-size: 24px;
+    color: #656d78;
+    padding: 60px 0 5px;
+}
+.index-project .item-list p{
+    color: #aab2bd;
+    line-height: 1.8;
+}
+.index-project ul{
+    padding-top: 100px;
+}
+.index-project ul li{
+    float: left;
+    width: 25%;
+}
+
+.index-service{
+    text-align: center;
+    padding:90px 0 100px;
+}
+.index-service ul{
+    padding: 100px 50px;
+}
+.index-service ul li{
+    float: left;
+    width: 20%;
+    position: relative;
+}
+.index-service ul li .hide{
+    opacity: 0;
+}
+.index-service ul li .hover-mask{
+    position: absolute;
+    top: 0;left: 0;right: 0;bottom: 0;
+}
+.index-service ul li .index-hover{
+    position: relative;
+    cursor: pointer;
+}
+
+.footer{
+    color: #ccd1d9;
+    background-color: #434a54;
+}
+.footer .container{
+    width: 1130px;
+    padding: 40px 20px 40px 50px;
+}
+.footer .company-content{
+    float: left;
+}
+.footer .company-content p{
+    margin-bottom: 10px;
+}
+.footer .company-content p:last-child{
+    margin-bottom: 0;
+}
+.footer p span{
+    color: #ffffff;
+    margin-left: 10px;
+}
+.footer p a{
+    color: #34b6eb;
+    text-decoration: underline;
+    margin-right: 7px;
+}
+.footer p a.beian {
+    text-decoration: none;
+    color: #fff;
+}
+.footer p a.beian:hover {
+    text-decoration: underline;
+}
+.footer .company-code{
+    float: right;
+    margin-top: 17px;
+}
+.footer .company-code p{
+    float: left;
+    line-height: 80px;
+    margin-right: 20px;
+}
+.company-code img {
+    width: 80px;
+    height: 80px;
+}
+
+/*出国医疗*/
+.abord-med{
+    border-bottom: none;
+}
+.abord-med h5{
+    font-size: 18px;
+    color: #656d78;
+    margin-top: 30px;
+}
+.abord-med ul{
+    padding-bottom: 800px;
+    background: url("../images/abordmedback.png") center 270px no-repeat;
+    padding-left: 60px;
+    padding-right: 60px;
+}
+.medical-process{
+    background: url("../images/processback.jpg") 0 0 no-repeat;
+    background-size: cover;
+    border-bottom: 0;
+}
+.medical-process .process{
+    padding-top: 110px;
+}
+.medical-process h2{
+    color: #f5f7fa;
+}
+.medical-process h3{
+    color: #ccd1d9;
+    margin: 10px 0;
+}
+.medical-process .line{
+    background-color: #ccd1d9;
+}
+
+.all-service{
+    background: #f5f7fa;
+}
+.all-service .service-person{
+    float: right;
+}
+.all-service .service-list{
+    padding-left:180px;
+}
+.all-service .service-list ul{
+    padding-top: 40px;
+}
+.service-list .service-list-title li{
+    font-size: 24px;
+    color: #ccd1d9;
+    cursor: pointer;
+}
+.service-list .service-list-title li.active{
+    color: #656d78;
+}
+.service-list-content{
+    font-size: 16px;
+    color: #ccd1d9;
+}
+.all-service .service-list ul {
+    float: left;
+}
+.service-list-title {
+    width: 34px;
+    float: left;
+}
+.service-list-title li{
+    padding-bottom: 50px;
+}
+.service-list-content {
+    padding-left: 120px;
+    margin-left: 34px;
+}
+.service-list-content li{
+    background: url("../images/servicecircle.png") 0 center no-repeat;
+    padding: 10px 0 10px 20px;
+}
+.all-service .service-list .line {
+    display: inline-block;
+    width: 22px;
+    height: 4px;
+    background-color: #aab2bd;
+    margin-top: 45px;
+}
+.service-list-content .content-sort{
+    display: none;
+}
+.service-list-content .content-sort.active{
+    display: block;
+}
+.medical-attention .attention-tit li{
+    float: left;
+    padding: 0;
+    width: 25%;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+.attention-tit li .tomargin{
+    border: 1px solid #e6e9ed;
+    border-radius: 5px;
+    padding: 20px 0 20px 20px;
+    margin-left: 20px;
+    text-align: left;
+}
+.attention-tit li:nth-child(1) .tomargin{
+    margin-left: 0;
+}
+.medical-attention .attention-tit{
+    padding-top: 80px;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+.attention-tit li .tomargin span{
+    float: left;
+    font-size: 40px;
+    line-height: 1;
+    color: #656d78;
+    margin-right:10px;
+}
+.attention-tit li .tomargin p{
+    float: left;
+    font-size: 16px;
+    color: #aab2bd;
+    margin-top: 15px;
+}
+.medical-attention .attention-content{
+    width: 640px;
+    height: 230px;
+    margin: 50px auto 5px;
+    padding: 0;
+    background: url("../images/attentionback.png") 0 center no-repeat;;
+}
+.medical-attention .attention-content li{
+    width: auto;
+    padding: 15px 30px 0;
+    float: none;
+    text-align: left;
+    font-size: 16px;
+    color: #656d78;
+    line-height: 26px;
+    display: none;
+}
+.colorset{
+    color: #ed7ba0;
+}
+.medical-attention{
+    border-bottom: none;
+}
+.medical-attention .attention-tit li.active .tomargin{
+    background-color: #ed7ba0;
+}
+.attention-tit li.active .tomargin span{
+    color: #ffffff;
+}
+.attention-tit li.active .tomargin p{
+    color: #ffffff;
+}
+.medical-attention .attention-content li.active{
+    display: block;
+}
+
+/*试管代孕*/
+.guarantee ul {
+    background: none;
+    padding-bottom: 5px;
+}
+.tube-process {
+    background: url("../images/tubeback.jpg") 0 0 no-repeat;
+    background-size: cover;
+}
+.only-partner ul{
+    padding: 60px 100px 90px;
+}
+.only-partner ul li{
+    width: auto;
+}
+.only-partner .intro{
+    margin:0 200px;
+    border-top: 2px solid #ccd1d9;
+    color: #aab2bd;
+    padding: 20px 0 10px;
+    line-height: 25px;
+}
+.advantage{
+    color: #656d78;
+}
+.advantage .img-wrap{
+    text-align: center;
+}
+.container>.colm-2{
+    float: left;
+    width: 50%;
+}
+.advantage{
+    border-top: 1px solid #e6e9ed;
+    border-bottom: 1px solid #e6e9ed;
+    padding: 100px 0 85px;
+    background-color: #f5f7fa;
+}
+.advantage  h2{
+    font-size: 74px;
+    color: #e6e9ed;
+    text-align: right;
+    margin-right: 150px;
+    padding-bottom: 30px;
+}
+.advantage  h4{
+    padding-right: 150px;
+    padding-bottom: 50px;
+}
+.advantage  h4>span{
+    font-size: 20px;
+    text-align: right;
+    display: inline-block;
+    position: relative;
+    width: 100%;
+}
+.advantage .colm-2 p{
+    margin-left: 50px;
+    margin-top: 50px;
+}
+.advantage .colm-2 p.bottomset{
+    padding-bottom: 70px;
+}
+.advantage  h4>span:before{
+    content: '';
+    width: 40px;
+    height: 1px;
+    top: 14px;
+    bottom: 0;
+    right: 200px;
+    border-top: 2px solid #aab2bd;
+    position: absolute;
+    zoom: 1;
+    z-index: 1;
+}
+.expert-info{
+    padding: 80px 0 90px;
+    border-bottom: none;
+}
+.expert-info ul{
+    padding-top: 20px;
+}
+.slide>.colm-6{
+    float: left;
+    width: 60%;
+}
+.expert-info .slide>.colm-6{
+    margin-right: -4px;
+}
+.slide>.colm-6>li{
+    float: left;
+    padding-top: 60px;
+    width: 33.333333%;
+    cursor: pointer;
+}
+.slide>.colm-6>li>p{
+    padding-top: 24px;
+    font-size: 16px;
+    color: #aab2bd;
+}
+.slide>.colm-6 .click-after{
+    display: none;
+}
+.slide>.colm-6>.active>.click-after{
+    display: inline-block;
+}
+.slide>.colm-6>.active>.click-before{
+    display: none;
+}
+.slide>.colm-4{
+    float: left;
+    width: 40%;
+}
+.expert-info .slide>.colm-4{
+    margin-top: 95px;
+    border-left: 1px solid #e6e9ed;
+}
+.slide>.colm-4 p{
+    color: #aab2bd;
+    line-height: 1.6;
+}
+.slide>.colm-4 p.bold-font{
+    font-size: 16px;
+    color: #656d78;
+    font-weight: 600;
+}
+.expert-info .expert-extro{
+    display: none;
+}
+.expert-info .expert-extro.active{
+    display: block;
+}
+.honor{
+    padding: 80px 0 90px;
+    border-top: 1px solid #e6e9ed;
+    border-bottom: 1px solid #e6e9ed;
+    background-color: #f5f7fa;
+}
+.honor-wrap{
+    padding: 40px 75px 0;
+}
+.honor-wrap h4{
+    font-size: 16px;
+    color: #656d78;
+    margin: 15px 0;
+    padding-left: 30px;
+}
+.honor-wrap>.colm-4{
+    text-align: left;
+}
+.honor-wrap .line{
+    margin: 0 0 0 30px;
+}
+.honor-wrap ul{
+    padding-top: 0;
+}
+.honor-wrap ul li {
+    float: left;
+    width: 50%;
+    padding-top: 30px;
+    text-align: center;
+}
+.honor-wrap .honor-img{
+    margin-top: 40px;
+    text-align: left;
+}
+
+/*国际保险*/
+.insur-Internation{
+    padding-bottom: 40px;
+    border-bottom: 1px solid #e6e9ed;
+}
+.insur-Internation ul li {
+    float: left;
+    width: 20%;
+}
+.insur-list span {
+    display: block;
+    margin: 20px 0;
+    font-size: 18px;
+    color: #aab2bd;
+}
+.insur-list .hover-img{
+    display: none;
+}
+.insur-Internation ul {
+    padding-top: 90px;
+}
+.insur-list  .hide{
+    padding: 30px 0 0;
+    font-size: 12px;
+    color: #656d78;
+    text-align: left;
+    opacity: 0;
+}
+.left-img{
+    float: left;
+    width: 60%;
+}
+.left-img img{
+    margin-top: 80px;
+}
+.insurance-case{
+    padding: 80px 0;
+}
+.insurance-case .container{
+    position: relative;
+}
+.insurance-case .right-font{
+    width: 40%;
+    float: left;
+}
+.insurance-case .right-font .toslide{
+    padding-left: 50px;
+}
+.insurance-case .right-font h1{
+    font-size: 32px;
+    color: #434a54;
+}
+.insurance-case .right-font h2{
+    font-size: 22px;
+    color: #aab2bd;
+}
+.insurance-case .right-font .case-content{
+    color: #aab2bd;
+    margin-top: 50px;
+}
+.insurance-case .container .line{
+    position: absolute;
+    bottom: 0;
+    left: 60%;
+    margin-left: 50px;
+    width: 30px;
+    height: 4px;
+    background-color: #ccd1d9;
+}
+
+/*治疗实例*/
+.treat-case {
+    text-align: center;
+    padding: 100px 0;
+}
+.treat-case h2 {
+    font-size: 38px;
+    color: #434a54;
+}
+.treat-case h3 {
+    font-size: 20px;
+    color: #ccd1d9;
+}
+.treat-case .line {
+    display: inline-block;
+    width: 40px;
+    height: 4px;
+    background-color: #ccd1d9;
+    margin: 15px 0;
+}
+.treat-case ul {
+    background: none;
+    padding: 120px 40px 50px;
+}
+.treat-case ul li {
+    float: left;
+    width: 25%;
+}
+.treat-case h5 {
+    font-size: 14px;
+    color: #aab2bd;
+    margin-top: 10px;
+}
+.treat-case ul li .see-more{
+    width: 120px;
+    height: 32px;
+    margin: 30px auto 0;
+    border-radius: 3px;
+    background-color: #656d78;
+}
+.treat-case ul li .see-more img{
+    margin-top: 8px;
+}
+.treat-case ul li .see-more:hover{
+    background-color: #ef88a9;
+}
+
+/*权威医院*/
+.recommend-hospital{
+    padding: 100px 0 60px;
+}
+.recommend-hospital .right-list h4{
+    font-size: 18px;
+    color: #434a54;
+    padding: 12px 10px;
+}
+.recommend-hospital .right-list p{
+    font-size: 12px;
+    color: #aab2bd;
+    padding: 0 10px 36px;
+}
+.recommend-hospital .left-tit{
+    float: left;
+    width: 17%;
+    padding-left: 40px;
+    box-sizing: border-box;
+}
+.recommend-hospital .right-list{
+    float: right;
+    width: 82.5%;
+}
+.recommend-hospital .right-list li{
+    float: left;
+    width: 33.333%;
+}
+.recommend-hospital .right-list li .item-list{
+    padding-left: 10px;
+}
+.recommend-hospital .left-tit h2{
+    font-size: 32px;
+    color: #434a54;
+}
+.recommend-hospital .left-tit h3{
+    font-size: 16px;
+    color: #ccd1d9;
+    margin-top: 10px;
+}
+.recommend-hospital .left-tit .line{
+    width: 30px;
+    height: 4px;
+    background-color: #aab2bd;
+    display: inline-block;
+    margin-top: 30px;
+}
+
+/*远程问诊*/
+.service-process>.container-fluid{
+    position: relative;
+    text-align: center;
+}
+.service-process>.container-fluid>h2{
+    position: absolute;
+    top: 90px;
+    left: 0;
+    right: 0;
+    font-size: 38px;
+    color: #f5f7fa;
+}
+.service-process>.container-fluid>h3{
+    position: absolute;
+    top: 150px;
+    left: 0;
+    right: 0;
+    font-size: 20px;
+    color: #ccd1d9;
+}
+.service-process>.container-fluid>.line{
+    position: absolute;
+    top: 210px;
+    left: 50%;
+    right: 0;
+    margin-left: -20px;
+    background-color: #ccd1d9;
+    width: 40px;
+    height: 4px;
+}
+.service-process img{
+    width: 100%;
+}
+
+/*最新资讯*/
+.medical-info{
+    padding: 80px 0;
+}
+.medical-info h4{
+    font-size: 18px;
+    color: #656d78;
+    padding-left: 80px;
+}
+.medical-info h5{
+    color: #ccd1d9;
+    padding-left: 80px;
+}
+.medical-info-list{
+    padding: 0 40px;
+}
+.medical-info-list ul{
+    padding-bottom: 25px;
+    border-bottom: 1px solid #e6e9ed;
+    display: none;
+}
+.medical-info-list ul.active{
+    display: block;
+}
+.medical-info-list ul li {
+    float: left;
+    width: 48%;
+    padding-top: 30px;
+}
+.medical-info-list ul li.margin-right{
+    padding-right: 4%;
+    margin-right: -3px;
+}
+.medical-info-list ul li .info-img{
+    float: left;
+    width: 55%;
+}
+.medical-info-list ul li .info-font{
+    float: left;
+    width: 45%;
+}
+.medical-info-list ul li .info-title{
+    font-size: 16px;
+    color: #656d78;
+    height: 80px;
+}
+.medical-info-list ul li .info-content{
+    font-size: 12px;
+    color: #aab2bd;
+}
+.page-list{
+    padding-top: 15px;
+}
+.page-list li{
+    width: 28px;
+    height: 28px;
+    border: 1px solid #e6e9ed;
+    background-color: #ffffff;
+    border-radius: 2px;
+    float: left;
+    color: #aab2bd;
+    line-height: 30px;
+    text-align: center;
+    margin-left: 10px;
+    cursor: pointer;
+}
+.page-list li.active{
+    background-color: #f195b3;
+    border-color: #f195b3;
+    color: #ffffff;
+}
+.page-list ul {
+    float: right;
+    margin-right: 40px;
+}
+
+/*@media (max-width: 1440px) {*/
+    /*.banner .container-fluid>.to-left {*/
+        /*left: 20px;*/
+    /*}*/
+    /*.banner .container-fluid>.to-right {*/
+        /*right: 20px;*/
+    /*}*/
+/*}*/

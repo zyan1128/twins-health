@@ -1,0 +1,60 @@
+<div class="urlContentWraper" id="custBaseWraper">
+    <div class="ui-info-layout">
+        <h2 class="ui-tit"><strong>预约信息</strong></h2>
+        <div class="ui-info-layout">
+            <table id="table_cust_base"></table>
+         </div>
+    </div>
+</div>
+
+<script>
+    $(function(){
+        var custWraper = $('#custBaseWraper');
+        var cust_column_model = new Array();
+        var cust_search_items = new Array();//查询条件 
+        var cust_list_buttons = new Array();
+
+        /********************表格展示列定义*********************/
+        //显示
+        cust_column_model.push({display: '序号', name : 'index', sortable:false});
+        cust_column_model.push({display: '姓名', name : 'name', sortable:false});
+        cust_column_model.push({display: '电话', name : 'mobile', sortable:false});
+        cust_column_model.push({display: '疾病描述', name : 'endTime', width:200,sortable:false});
+        cust_column_model.push({display: '预约时间', name : 'created', sortable:false});
+
+        cust_search_items.push({row:'1',type:'jrad-input',display:'姓名',name:'name'});
+        cust_search_items.push({row:'1',type:'jrad-input',display:'电话',name:'mobile'});
+        cust_search_items.push({row:'2',type:'jrad-daterange',display:'预约时间',name:'startDate', grid:7});
+
+        //数据加载
+        $('#table_cust_base',custBaseWraper).flexigrid({
+            reload: true,
+            grid:40,
+            pagination: {diaplay_pages: 6,align:'bottom',showText: '从第_start_到_end_项 共_total_项'},
+            colModel: cust_column_model,
+            searchitems :cust_search_items,
+            buttons : cust_list_buttons,
+            method:'get',
+            showSearch:true,
+            showCheckbox:false,
+            preQuery: function(param){
+                var createDate = $.trim($(".searchContent div[name='startDate']",custBaseWraper).daterange('val'));
+                if(createDate!=""){
+                    var timeRange=createDate.split(";");
+                    if(timeRange.length == 2){
+                        if(timeRange[0] != ""){
+                            param.startDate=timeRange[0]+" 00:00:00";
+                        }
+                        if(timeRange[1] != ""){
+                            param.endDate=timeRange[1]+" 23:59:59";
+                        }
+                    }
+                }
+                return param;
+            }, 
+            url:'/twins-health-ws/ws/0.1/health/page',
+            overflow:true 
+        });
+
+    });
+</script>
